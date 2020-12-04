@@ -1,0 +1,7 @@
+# Ignore directory in archive 
+archive
+bin
+include
+lib
+share
+src
