@@ -1,0 +1,27 @@
+
+[sqlite]
+./configure --prefix=/opt/sqlite
+make
+make install
+
+[sqlitebrowser]
+git clone https://github.com/sqlitebrowser/sqlitebrowser
+
+apt install build-essential git cmake libsqlite3-dev libsqlcipher-dev
+apt install qtchooser qt5-qmake qtbase5-dev-tools qttools5-dev qttools5-dev-tools qtbase5-dev libqt5scintilla2-dev libqcustomplot-dev
+
+cd sqlitebrowser
+mkdir build; cd build
+
+cmake -Wno-dev -G "Unix Makefiles" \
+  -DCMAKE_INSTALL_PREFIX=/opt/sqlite/browser \
+  -DCMAKE_BUILD_TYPE=Release \
+  -Dsqlcipher=1 \
+  ..
+
+  -DFORCE_INTERNAL_QSCINTILLA=ON \
+
+make
+make install
+
+
